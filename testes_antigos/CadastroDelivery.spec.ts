@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { join } from 'path';
 import { TheConfig } from 'sicolo';
-import CadastroPage from '../support/pages/CadastroPage';
+import CadastroPage from '../src/support/pages/CadastroPage';
 
 test.describe('Cadastro de usuário para delivery', () => {
   const CONFIG = join(__dirname, '../support/fixtures/config.yml');

@@ -1,11 +1,11 @@
 import { test } from '@playwright/test';
 import { join } from 'path';
 import { TheConfig } from 'sicolo';
-import HomePage from '../support/pages/HomePage';
+import ContactPage from '../src/support/pages/ContactPage';
 
-test.describe('Find Products', () => {
+test.describe('Formulário de contato', () => {
   const CONFIG = join(__dirname, '../support/fixtures/config.yml');
-  let homePage: HomePage;
+  let contactPage: ContactPage;
   let BASE_URL = TheConfig.fromFile(CONFIG)
     .andPath('application.automationpractice_QA')
     .retrieveData();
@@ -25,12 +25,12 @@ test.describe('Find Products', () => {
   }
 
   test.beforeEach(async ({ page }) => {
-    homePage = new HomePage(page);
+    contactPage = new ContactPage(page);
     await page.goto(BASE_URL);
   });
 
-  test('Find product by name', async () => {
-    await homePage.searchProductByName();
-    await homePage.checkProductCount();
+  test('Enviar mensagem de contato', async () => {
+    await contactPage.preencherFormulariodeContato('a@b.com.br');
+    await contactPage.validarMensagemOK();
   });
 });

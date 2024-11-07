@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "testes_antigos/CadastroDelivery.spec.ts", "testes_antigos/Contact.spec.ts", "testes_antigos/FindProduct.spec.ts", "testes_antigos/SauceDemo.spec.ts"],
   "exclude": ["./node_modules"],
   "compilerOptions": {    
     "target": "es6",    
